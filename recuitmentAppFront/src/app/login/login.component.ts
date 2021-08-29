@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { TokenStorageService } from '../_services/token-storage.service';
+import { Role } from './role';
+import { User } from './user';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +14,7 @@ export class LoginComponent implements OnInit {
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
-  roles: string[] = [];
+  roles: Role[] = [];
 
   constructor(private authService: AuthService, private tokenStorage: TokenStorageService) { }
 
@@ -24,15 +26,18 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
+    
+    console.log("Onsubmit");
     this.authService.login(this.form).subscribe(
-      data => {
+      (data : any) => {
+        console.log("data" + JSON.stringify(data));
         this.tokenStorage.saveToken(data.accessToken);
         this.tokenStorage.saveUser(data);
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
-        this.reloadPage();
+        
       },
       err => {
         this.errorMessage = err.error.message;

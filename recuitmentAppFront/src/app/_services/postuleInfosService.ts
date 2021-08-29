@@ -10,12 +10,15 @@ export class  PostuleInfosService {
 
   constructor(private http: HttpClient){}
 
+  public addPostuleInfos(postuleInfos: PostuleInfos): Observable<PostuleInfos> {
+    console.log("safaa !", postuleInfos);
+    return this.http.post<PostuleInfos>(`${this.apiServerUrl}/PostulerInfos/addpostuleInfos`, postuleInfos);
+  }
+
   public getPostuleInfos(): Observable<PostuleInfos[]> {
-    return this.http.get<PostuleInfos[]>(`${this.apiServerUrl}/postuleInfos/allPostuleInfos`);
+    return this.http.get<PostuleInfos[]>(`${this.apiServerUrl}/PostulerInfos/allpostuleInfos`);
     
   }
 
-  public addPostuleInfos(postuleInfos: PostuleInfos): Observable<PostuleInfos> {
-    return this.http.post<PostuleInfos>(`${this.apiServerUrl}/postuleInfos/addPostuleInfos`, postuleInfos);
-  }
+  
 }

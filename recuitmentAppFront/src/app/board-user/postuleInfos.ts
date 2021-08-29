@@ -1,3 +1,5 @@
+import { User } from "../login/user";
+
 export interface PostuleInfos {
     id: number;
     cv: string;
@@ -6,5 +8,7 @@ export interface PostuleInfos {
     githubUrl: string;
     societe: string;
     domaineDetude: string;
+    condidatPostule: User;
+    
   }
   

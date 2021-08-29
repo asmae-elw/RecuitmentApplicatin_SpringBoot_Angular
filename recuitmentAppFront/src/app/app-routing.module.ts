@@ -21,6 +21,7 @@ const routes: Routes = [
   { path: 'admin', component: BoardAdminComponent },
   { path: 'offre', component: OffreComponent },
   { path: 'postuler', component: PostulerComponent },
+  { path: 'postuler/addPostuleInfos', component: BoardUserComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

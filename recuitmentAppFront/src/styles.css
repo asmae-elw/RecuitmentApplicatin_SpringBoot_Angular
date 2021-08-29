@@ -24,7 +24,7 @@ a {
   width: 60px;
 }
 
-h1,
+
 h2,
 h3,
 h4,
@@ -32,6 +32,10 @@ h5,
 h6 {
   margin: 0 0 10px;
   font-weight: 600;
+}
+h1 {
+  color: cornflowerblue;
+  text-align: center;
 }
 
 .social-links li a {
@@ -57,3 +61,6 @@ color: white;
 a {
 color: white;
 }
+
+
+

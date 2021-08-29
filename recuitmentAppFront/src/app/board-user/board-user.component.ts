@@ -29,22 +29,8 @@ export class BoardUserComponent implements OnInit {
   }
   
 
-  // ajouter pour le button postuler
+  
 
-  public onAddPostuleInfos(addForm: NgForm): void {
-    document.getElementById('add-postuleInfos-form').click();
-    this.postuleInfosService.addPostuleInfos(addForm.value).subscribe(
-      (response: PostuleInfos) => {
-        console.log(response);
-        this.getPostuleInfos();
-        addForm.reset();
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-        addForm.reset();
-      }
-    );
-  }
 
   public getPostuleInfos(): void {
     this.postuleInfosService.getPostuleInfos().subscribe(
@@ -58,17 +44,6 @@ export class BoardUserComponent implements OnInit {
     );
   }
 
-  public onOpenModal(postuleInfos: PostuleInfos, mode: string): void {
-    const container = document.getElementById('main-container');
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.style.display = 'none';
-    button.setAttribute('data-toggle', 'modal');
-    if (mode === 'add') {
-      button.setAttribute('data-target', '#addPostuleInfosModal');
-    }
-    container.appendChild(button);
-    button.click();
-  }
+
 
 }
